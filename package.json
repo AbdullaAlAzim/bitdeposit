@@ -1,0 +1,28 @@
+{
+  "name": "playwright-bitdeposit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:auth": "npx playwright test tests/api/auth.api.test.js",
+    "test:db": "npx playwright test tests/db",
+    "test:ui": "npx playwright test tests/ui",
+    "test:headed": "npx playwright test --headed",
+    "test:report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.17"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0",
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "mysql2": "^3.14.1",
+    "winston": "^3.17.0"
+  }
+}
