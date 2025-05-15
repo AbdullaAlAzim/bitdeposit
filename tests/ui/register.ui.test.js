@@ -1,16 +1,13 @@
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
-import db from '../../src/utils/db'; // ✅ DB helper
+import db from '../../src/utils/db';
 
-// Define two separate paths
+// JSON ফাইল পাথ
 const emailUserPath = path.join(__dirname, '../../src/utils/testEmailUser.json');
 const mobileUserPath = path.join(__dirname, '../../src/utils/testMobileUser.json');
 
-
-// ------------------------------
-// 📧 Registration with Email
-// ------------------------------
+// ইমেইল রেজিস্ট্রেশন টেস্ট
 test('UI Registration and DB Verification (Email)', async ({ page }) => {
   page.setDefaultTimeout(60000);
 
@@ -26,12 +23,15 @@ test('UI Registration and DB Verification (Email)', async ({ page }) => {
   await page.getByRole('textbox', { name: 'পাসওয়ার্ড*' }).fill(password);
   await page.getByRole('button', { name: 'সাইন আপ' }).click();
 
+  // Registration API response status 200 পাওয়ার পর লগ দেখানো
   await page.waitForResponse(
     (response) =>
       response.url().includes('/api/v1/user/register') &&
       response.status() === 200,
     { timeout: 60000 }
-  );
+  ).then(response => {
+    console.log(`✅ Registration API responded with status: ${response.status()}`);
+  });
 
   await page.waitForSelector('#otp', { state: 'visible' });
   const otpInputs = await page.$$('input.ant-otp-input');
@@ -45,7 +45,7 @@ test('UI Registration and DB Verification (Email)', async ({ page }) => {
   await confirmButton.click();
   await page.waitForTimeout(2000);
 
-  // ✅ Save to testEmailUser.json
+  // Save user data to JSON
   const emailUserData = {
     email: randomEmail,
     password,
@@ -66,10 +66,7 @@ test('UI Registration and DB Verification (Email)', async ({ page }) => {
   if (userFromDb.status !== undefined) expect(userFromDb.status).toBe(1);
 });
 
-
-// ------------------------------
-// 📱 Registration with Mobile
-// ------------------------------
+// মোবাইল রেজিস্ট্রেশন টেস্ট
 test('UI Registration and DB Verification with Phone', async ({ page }) => {
   const randomPhone = '019' + Math.floor(10000000 + Math.random() * 90000000).toString();
   const password = 'password';
@@ -100,12 +97,15 @@ test('UI Registration and DB Verification with Phone', async ({ page }) => {
 
   await page.getByRole('button', { name: 'সাইন আপ' }).click();
 
+  // Registration API response status 200 পাওয়ার পর লগ দেখানো
   await page.waitForResponse(
     (res) =>
       res.url().includes('/api/v1/user/register') &&
       res.status() === 200,
     { timeout: 60000 }
-  );
+  ).then(response => {
+    console.log(`✅ Registration API responded with status: ${response.status()}`);
+  });
 
   await page.waitForSelector('#otp', { state: 'visible' });
   const otpInputs = await page.$$('input.ant-otp-input');
