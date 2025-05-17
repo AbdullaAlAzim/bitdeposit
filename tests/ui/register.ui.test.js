@@ -3,11 +3,11 @@ import fs from 'fs';
 import path from 'path';
 import db from '../../src/utils/db';
 
-// JSON ফাইল পাথ
+// JSON file path
 const emailUserPath = path.join(__dirname, '../../src/utils/testEmailUser.json');
 const mobileUserPath = path.join(__dirname, '../../src/utils/testMobileUser.json');
 
-// ইমেইল রেজিস্ট্রেশন টেস্ট
+// Email Registration test
 test('UI Registration and DB Verification (Email)', async ({ page }) => {
   page.setDefaultTimeout(60000);
 
