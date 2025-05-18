@@ -18,19 +18,25 @@ for (const user of testEmailUser) {
     });
 
     test(`Deposit test with mobile bank`, async ({ page }) => {
-      const paymentMethod = page.locator("(//div[contains(@class, 'fund-wallet')])[4]");
+      const paymentMethod = page.locator(
+        "(//div[contains(@class, 'fund-wallet')])[4]"
+      );
       await expect(paymentMethod).toBeVisible();
       await paymentMethod.click();
       console.log("Selected 'bKash Personal' payment method");
 
-      const mobileInput = page.getByRole("textbox", { name: "Enter Mobile Number" });
+      const mobileInput = page.getByRole("textbox", {
+        name: "Enter Mobile Number",
+      });
       await expect(mobileInput).toBeVisible();
       await mobileInput.fill("01643234658");
       await expect(mobileInput).toHaveValue("01643234658");
       console.log("Entered and verified mobile number");
       await page.waitForTimeout(1000);
 
-      const amountInput = page.getByRole("textbox", { name: "Enter Deposit Amount" });
+      const amountInput = page.getByRole("textbox", {
+        name: "Enter Deposit Amount",
+      });
       await expect(amountInput).toBeVisible();
       await amountInput.fill("500");
       await expect(amountInput).toHaveValue("500");
@@ -53,13 +59,17 @@ for (const user of testEmailUser) {
       await page.getByRole("button", { name: "বাতিল" }).click();
       await page.getByRole("button", { name: "হ্যাঁ" }).click();
 
-      const depost_remove_msg = page.getByText("Deposit request successfully removed");
+      const depost_remove_msg = page.getByText(
+        "Deposit request successfully removed"
+      );
       await expect(depost_remove_msg).toBeVisible({ timeout: 5000 });
       console.log("Success toast is visible for deposit removed");
     });
 
     test(`Deposit test with bank`, async ({ page }) => {
-      const paymentMethod = page.locator("(//div[contains(@class, 'fund-wallet')])[11]");
+      const paymentMethod = page.locator(
+        "(//div[contains(@class, 'fund-wallet')])[11]"
+      );
       await expect(paymentMethod).toBeVisible();
       await paymentMethod.click();
       console.log("Selected 'bKash Personal' payment method");
@@ -68,15 +78,21 @@ for (const user of testEmailUser) {
       // Upload image
       await page.getByRole("button", { name: "envelop" }).click();
       const fileInput = page.locator('input[type="file"]');
-      await fileInput.setInputFiles('src/images/image01.jpg');
+      await fileInput.setInputFiles("src/images/image01.jpg");
       console.log("Uploaded file");
 
       // Fill form fields
-      await page.getByRole("textbox", { name: "Account Name..." }).fill("jamal");
+      await page
+        .getByRole("textbox", { name: "Account Name..." })
+        .fill("jamal");
       await page.waitForTimeout(1000);
-      await page.getByRole("textbox", { name: "Account No..." }).fill("234872386482343");
+      await page
+        .getByRole("textbox", { name: "Account No..." })
+        .fill("234872386482343");
       await page.waitForTimeout(1000);
-      await page.getByRole("textbox", { name: "Enter Deposit Amount" }).fill("567");
+      await page
+        .getByRole("textbox", { name: "Enter Deposit Amount" })
+        .fill("567");
       await page.waitForTimeout(1000);
 
       const requestBtn = page.getByRole("button", { name: "রিকোয়েস্ট করুন" });
@@ -92,7 +108,9 @@ for (const user of testEmailUser) {
       await page.getByRole("button", { name: "বাতিল" }).click();
       await page.getByRole("button", { name: "হ্যাঁ" }).click();
 
-      const depost_remove_msg = page.getByText("Deposit request successfully removed");
+      const depost_remove_msg = page.getByText(
+        "Deposit request successfully removed"
+      );
       await expect(depost_remove_msg).toBeVisible({ timeout: 5000 });
       console.log("Success toast is visible for deposit removed");
     });
