@@ -47,6 +47,8 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
 
+  
+
   // Projects for different browsers
   projects: [
     {

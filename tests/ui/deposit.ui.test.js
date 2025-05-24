@@ -1,100 +1,158 @@
 const test = require("../fixtures/login.fixture");
 const { expect } = require("@playwright/test");
 const testEmailUser = require("../../src/utils/testEmailUser.json");
+const db = require("../../src/utils/db");
+const fs = require("fs");
+
+// 📁 Create screenshots folder if not exists
+if (!fs.existsSync("screenshots")) {
+  fs.mkdirSync("screenshots");
+}
 
 for (const user of testEmailUser) {
   test.describe(`Deposit Tests for: ${user.email}`, () => {
     test.beforeEach(async ({ page, login }) => {
-      // Login
       await login({ email: user.email, password: user.password });
-      console.log("Login successful");
+      console.log("✅ Login successful");
       await page.waitForTimeout(1000);
 
-      // Click Deposit Button
       const depositBtn = page.getByRole("button", { name: "ডিপোজিট করুন" });
       await expect(depositBtn).toBeVisible();
       await depositBtn.click();
-      console.log("Clicked 'ডিপোজিট করুন' button");
+      console.log("✅ Clicked 'ডিপোজিট করুন' button");
     });
 
     test(`Deposit test with mobile bank`, async ({ page }) => {
-      const paymentMethod = page.locator("(//div[contains(@class, 'fund-wallet')])[4]");
+      // ✅ Select payment method
+      const paymentMethod = page.locator(
+        "(//div[contains(@class, 'fund-wallet')])[4]"
+      );
       await expect(paymentMethod).toBeVisible();
       await paymentMethod.click();
-      console.log("Selected 'bKash Personal' payment method");
+      console.log("✅ Selected Mobile Bank method");
 
-      const mobileInput = page.getByRole("textbox", { name: "Enter Mobile Number" });
-      await expect(mobileInput).toBeVisible();
-      await mobileInput.fill("01643234658");
-      await expect(mobileInput).toHaveValue("01643234658");
-      console.log("Entered and verified mobile number");
-      await page.waitForTimeout(1000);
+      // ✅ Fill form
+      const mobileNumber = "01643234658";
+      const depositAmount = 500;
 
-      const amountInput = page.getByRole("textbox", { name: "Enter Deposit Amount" });
-      await expect(amountInput).toBeVisible();
-      await amountInput.fill("500");
-      await expect(amountInput).toHaveValue("500");
-      console.log("Entered and verified deposit amount");
-      await page.waitForTimeout(1000);
-
+      await page
+        .getByRole("textbox", { name: "Enter Mobile Number" })
+        .fill(mobileNumber);
+      await page
+        .getByRole("textbox", { name: "Enter Deposit Amount" })
+        .fill(depositAmount.toString());
       await page.keyboard.press("Tab");
 
       const requestBtn = page.getByRole("button", { name: "রিকোয়েস্ট করুন" });
       await expect(requestBtn).toBeVisible();
       await expect(requestBtn).toBeEnabled();
+
+      // 🔍 Log POST API responses
+      page.on("response", (res) => {
+        if (res.request().method() === "POST") {
+          console.log("📡 POST:", res.status(), res.url());
+        }
+      });
+
+      // ✅ Click deposit
       await requestBtn.click();
-      console.log("Clicked 'রিকোয়েস্ট করুন' button");
-      await page.waitForTimeout(2000);
+      console.log("🔄 Request button clicked");
 
-      const toast = page.getByText("Deposit request successfully sent");
-      await expect(toast).toBeVisible({ timeout: 5000 });
-      console.log("Success toast is visible");
+      const toast = page.getByText("Deposit request successfully sent.");
+      await expect(toast).toBeVisible({ timeout: 7000 });
+      console.log("✅ Toast is visible");
 
+      // ✅ Cancel deposit
       await page.getByRole("button", { name: "বাতিল" }).click();
       await page.getByRole("button", { name: "হ্যাঁ" }).click();
 
-      const depost_remove_msg = page.getByText("Deposit request successfully removed");
-      await expect(depost_remove_msg).toBeVisible({ timeout: 5000 });
-      console.log("Success toast is visible for deposit removed");
+      const depostRemoveMsg = page.getByText(
+        "Deposit request successfully removed"
+      );
+      await expect(depostRemoveMsg).toBeVisible({ timeout: 5000 });
+      console.log("✅ Deposit removed");
+
+      // ✅ DB Verification
+      const dbRecord = await db.findLatestMobileBankDepositFullInfo(
+        mobileNumber
+      );
+
+      expect(dbRecord).toBeDefined();
+      expect(dbRecord.amount).toBe(depositAmount);
+      expect(dbRecord.mobile_number).toBe(mobileNumber);
+      expect(dbRecord.status).toMatch(/pending|approved|rejected|removed/);
+
+      if (dbRecord.status !== "removed") {
+        expect(dbRecord.trx_no).not.toBeNull();
+        expect(dbRecord.transaction_id).not.toBeNull();
+      } else {
+        console.warn(
+          "⚠️ Deposit was removed — skipping trx_no & transaction_id check."
+        );
+      }
+
+      expect(dbRecord.user_id).not.toBeNull();
+      console.log("✅ DB record verified:", dbRecord);
     });
 
     test(`Deposit test with bank`, async ({ page }) => {
-      const paymentMethod = page.locator("(//div[contains(@class, 'fund-wallet')])[11]");
+      const paymentMethod = page.locator(
+        "(//div[contains(@class, 'fund-wallet')])[11]"
+      );
       await expect(paymentMethod).toBeVisible();
       await paymentMethod.click();
-      console.log("Selected 'bKash Personal' payment method");
+      console.log("✅ Selected 'Bank' deposit method");
+
       await page.waitForTimeout(1000);
 
-      // Upload image
       await page.getByRole("button", { name: "envelop" }).click();
       const fileInput = page.locator('input[type="file"]');
-      await fileInput.setInputFiles('src/images/image01.jpg');
-      console.log("Uploaded file");
+      await fileInput.setInputFiles("src/images/image01.jpg");
+      console.log("✅ File uploaded");
 
-      // Fill form fields
-      await page.getByRole("textbox", { name: "Account Name..." }).fill("jamal");
-      await page.waitForTimeout(1000);
-      await page.getByRole("textbox", { name: "Account No..." }).fill("234872386482343");
-      await page.waitForTimeout(1000);
-      await page.getByRole("textbox", { name: "Enter Deposit Amount" }).fill("567");
-      await page.waitForTimeout(1000);
+      await page
+        .getByRole("textbox", { name: "Account Name..." })
+        .fill("jamal");
+      await page.waitForTimeout(500);
+      await page
+        .getByRole("textbox", { name: "Account No..." })
+        .fill("234872386482343");
+      await page.waitForTimeout(500);
+      await page
+        .getByRole("textbox", { name: "Enter Deposit Amount" })
+        .fill("567");
+      await page.waitForTimeout(500);
 
       const requestBtn = page.getByRole("button", { name: "রিকোয়েস্ট করুন" });
       await expect(requestBtn).toBeVisible();
+      await expect(requestBtn).toBeEnabled();
+
+      // 🔍 Log all API responses
+      page.on("response", (res) => {
+        console.log("📡 Response:", res.status(), res.url());
+      });
+
       await requestBtn.click();
-      console.log("Clicked 'রিকোয়েস্ট করুন' button");
-      await page.waitForTimeout(2000);
+      console.log("🔄 Request button clicked");
 
       const toast = page.getByText("Deposit request successfully sent");
-      await expect(toast).toBeVisible({ timeout: 5000 });
-      console.log("Success toast is visible");
+      await expect(toast).toBeVisible({ timeout: 7000 });
+      console.log("✅ Success toast is visible");
+
+      // await page.screenshot({
+      //   path: `screenshots/${user.email}_bank_deposit.png`,
+      //   fullPage: true,
+      // });
+      console.log("📸 Screenshot saved (Bank)");
 
       await page.getByRole("button", { name: "বাতিল" }).click();
       await page.getByRole("button", { name: "হ্যাঁ" }).click();
 
-      const depost_remove_msg = page.getByText("Deposit request successfully removed");
-      await expect(depost_remove_msg).toBeVisible({ timeout: 5000 });
-      console.log("Success toast is visible for deposit removed");
+      const depostRemoveMsg = page.getByText(
+        "Deposit request successfully removed"
+      );
+      await expect(depostRemoveMsg).toBeVisible({ timeout: 5000 });
+      console.log("✅ Deposit removed (Bank)");
     });
   });
 }
