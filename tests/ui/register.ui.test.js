@@ -17,6 +17,7 @@ const mobileUserPath = path.join(
 test("UI Registration and DB Verification (Email)", async ({ page }) => {
   page.setDefaultTimeout(60000);
 
+
   const randomEmail = `rashed${Math.floor(Math.random() * 10000)}@softic.ai`;
   const password = "password123";
   const otpCode = "123456";
