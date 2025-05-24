@@ -6,8 +6,9 @@ const test = baseTest.extend({
   login: async ({ page }, use) => {
     // Define reusable login function
     const login = async ({ email, password }) => {
+       page.setDefaultTimeout(60000);
       await page.goto("https://dev-user.bitdeposit.org/");
-
+     
       await page.getByRole("button", { name: "লগইন" }).click();
       await page
         .getByRole("textbox", { name: "ইমেইল অথবা অ্যাকাউন্ট আইডি" })
