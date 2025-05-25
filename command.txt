@@ -1,0 +1,13 @@
+==========================
+Allure All Command
+==========================
+
+*Old repor clean code: 
+Remove-Item -Recurse -Force allure-results, allure-report
+
+*Allure New Report Genarate
+npx allure generate ./allure-results -o ./allure-report
+
+*Allure Report open In browser
+npx allure open ./allure-report
+
