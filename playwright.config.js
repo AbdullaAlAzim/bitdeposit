@@ -19,35 +19,23 @@ export default defineConfig({
   // Limit workers in CI
   workers: process.env.CI ? 1 : undefined,
 
-  // Use HTML reporter
-  reporter: 'html',
+  // ✅ Multiple reporters: HTML and Allure
+  reporter: [
+    ['html'], // Built-in Playwright HTML report
+    ['allure-playwright'], // Extent-style interactive report
+  ],
 
   use: {
-    // 💡 Base URL — use relative page.goto('/login') etc.
     baseURL: 'https://dev-user.bitdeposit.org',
-
-    // 💡 Global action timeout (click, fill, etc.)
-    actionTimeout: 15000, // 15 seconds
-
-    // 💡 Navigation timeout
-    navigationTimeout: 30000, // 30 seconds
-
-    // 💡 Expect timeout for expect() conditions
+    actionTimeout: 15000,
+    navigationTimeout: 30000,
     expect: {
-      timeout: 10000, // 10 seconds
+      timeout: 10000,
     },
-
-    // Automatically capture screenshot on failure
     screenshot: 'only-on-failure',
-
-    // Optional: Record video on retry
     video: 'retain-on-failure',
-
-    // Record trace on first retry
     trace: 'on-first-retry',
   },
-
-  
 
   // Projects for different browsers
   projects: [
@@ -55,14 +43,5 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    // Optionally add:
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
   ],
 });
