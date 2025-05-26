@@ -18,7 +18,7 @@ const test = baseTest.extend({
       await expect(page.locator("text=Successfully Logged In")).toBeVisible({ timeout: 5000 });
 
       // Also confirm user redirected to dashboard/home
-      await page.waitForLoadState('networkidle');
+      //await page.waitForLoadState('networkidle');
     };
 
     await use(login);
