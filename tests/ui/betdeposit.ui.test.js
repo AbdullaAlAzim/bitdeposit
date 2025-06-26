@@ -22,12 +22,9 @@ for (const user of testEmailUser) {
       console.log("✅ Clicked 'ডিপোজিট করুন' button");
     });
 
-
     test(`Bet Deposit test `, async ({ page }) => {
 
-
-
-
+``
     });
 
   });

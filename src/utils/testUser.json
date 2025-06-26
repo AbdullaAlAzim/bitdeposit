@@ -1,33 +1,33 @@
 {
   "status": "success",
   "code": 200,
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNjNTVkYzQ3NWIyZjQ1MTA4M2NiM2VlNGJiZjM2NWI4ZTlhMjUyMDliNTU3YWQyMGI5NTQ2NTU4NzIxMTEzMmRiZjdjMjJjZWEyMGEyNDgiLCJpYXQiOjE3NDg4NjMxMDAuNzM5NjY1LCJuYmYiOjE3NDg4NjMxMDAuNzM5NjY4LCJleHAiOjE3NjQ2NzQzMDAuNzM4ODM3LCJzdWIiOiIyMTIyIiwic2NvcGVzIjpbImNoZWNrLXVzZXIiXX0.q_Bxw7XBtjJMMUfN4f6Jzf9iRqt_tSkEB67vckrXALhqACLkYGwCVCOj-dYFp5WoLQ6_Moxflx4x9XF2Y5cfyMlw3G5jA8G7wfsAoS50bT4aDGK8tc1SeFM92EzCUeahPOOJ1HFbi9y0QKF_Si0cd6Va7iNCJXDEdg2P8uTe4GHPk2VKSqJgjAwpg9niJSUh2O7K6lHRnZo39bjcUQX19aaZVdXj305PdJnlMyaqUHlgfvCfC4sY9q1Zu4JerL0hih7BXonwZ4199RD1c0RIjY4hfIDMGKQB0Y1txG2yhIFYijY5HR-4ng4lD6lqU0xtyiBuXCEiABLSaLTauaz1LElKnoQlWAkP8YIR11keBQ6r4bA7967cLACMR2rxI4HGo0nsf4oippKhWpD6FLcKLF5wL4E3cu7ihjMgxaZ9PFWBNGHu4A1sFrrE8MwlsZeRvxI9Luyv31jPm80QCrO-uWHgMd7PZ0HtdnG8RSe7njCijYfLs9ZNYluYEfsj77K71GB6lKQR7wGCwsX7UZGREfsR13tpc551x_h1nfQP9czK-B0GZToHJpwi5AEakt2yjw918HcMhOFNXUoFBrpk-3fBpQxbQ2c5H3FfmT8clAYjDxLrq6wnHWUzVOGR2OhKXlcwywT5pyNWLdPwclTQq69UtRQTH4yrrjTa0bjuLT0",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDQzN2QxN2M5YjU4N2EzMDFjOWE3YmExZWIyZWFkNDNhNjVkNmY5ZmFjN2I4MmY0ZWZiNDNiNDE5Yjc3OTNmZWNkN2JlZTBkZDE2YWUxNDEiLCJpYXQiOjE3NDg4NjI5ODYuOTMwODg0LCJuYmYiOjE3NDg4NjI5ODYuOTMwODg3LCJleHAiOjE3NjQ2NzQxODYuOTMwMjA2LCJzdWIiOiIyMTA3Iiwic2NvcGVzIjpbImNoZWNrLXVzZXIiXX0.cU5x90X4MWEe6ls0QbFWAKNyrt3xGDrqj_j27UvHcuK_oFDb2mEl39MSP_MpqRFGr6U9e1L3YfMkbOGddrfybkNNnIY5b_A2MroFDnOdGMfh5KmsvZ6YsV4-Bvg_TcvuhhzbdiamoHNuY3unmRwYuRNzc7VnSjrNnIvlRyEFg8qza9b93t4se-C6i60UC2QXZ88wStUnyIABzgwUZR8H1ZLXCTceISFIWaypPfrkpdn0iv8A4xNQkGxZkMmHonSoCVRNdOm8WsgiNTs6krBG0_B_gSHLvGF-2bQcAuMoa-0GKzmCuSBGaGpEQWQM3jsQpth0tRRaDvD8A2AwBi_Wgiqq4MCwk7e-oEwv20wewlZdRZg1RSIE5JEf1oEm0W9ePTW_mi5YOKi3kBsx2NrOaaNJaE-cBd_-yCOEnpXavUNOT5EjQGhBifF0qvC8mdC70gG7gLUlT2beshq-GHHuyaO_6Eviucr3Ff_K_E9zBf0h0axM3-tW0T-T7O-SYdPdsC4m9yoYzBD3p9TWMNkBblo2GBIJxfnpeJp7Vxi2KrfzG86AwwYlwUHpTNd4QodgKf5vuadMztG7xEZwTWdjmVVKPeVWSDBI2IqebRJ4bkwmaR0KMnpRry88_n5j8TZNtfkLF6zR7a9m1hLdpwi13JFBfkKqxmr6JTd1BGCeUu8",
   "user": {
-    "id": "2122",
-    "uuid": "f8384371-450c-4593-a923-16235aa0fd59",
+    "id": "2107",
+    "uuid": "53496dd3-b699-437f-b0da-d23b70b9164e",
     "mobile": null,
-    "account_id": "145951",
-    "code_name": "BD-0002123",
-    "email": "chasem@softic.ai",
-    "email_verified_at": "2025-06-02T11:18:20.000000Z",
+    "account_id": "581635",
+    "code_name": "BD-0002108",
+    "email": "lizzie@softic.ai",
+    "email_verified_at": "2025-06-02T11:16:26.000000Z",
     "mobile_verified_at": null,
     "full_name": null,
-    "uuid_token": "8c0d93c2-ee62-43d0-87db-a37b3f30f37f",
+    "uuid_token": "29194f42-2a1b-42f3-8b3e-5fcddf1918cc",
     "session_info": {
-      "id": 1947,
-      "sid": "j9hsbli90f46amtv3cqcs8tw",
-      "account_id": "145951",
-      "user_id": 2122,
+      "id": 1932,
+      "sid": "aovcpiz6bukl0isvku8lq574",
+      "account_id": "581635",
+      "user_id": 2107,
       "expires_at": "0000-00-00 00:00:00",
-      "created_at": "2025-06-02T11:18:20.000000Z",
-      "updated_at": "2025-06-02T11:18:20.000000Z"
+      "created_at": "2025-06-02T11:16:26.000000Z",
+      "updated_at": "2025-06-02T11:16:26.000000Z"
     },
     "wallets": [
       {
-        "uuid": "efc7aaea-bef3-4ab0-9657-b138b58e2928",
+        "uuid": "eca99961-d5d1-4cf9-af77-9ad6d74cf956",
         "balance": 0,
         "currency_id": 116,
-        "wallet_number": "145951116",
+        "wallet_number": "581635116",
         "status": 1,
         "default": 1,
         "is_base": 1,
@@ -38,14 +38,14 @@
           "symbol": "৳"
         },
         "bonus_wallet": {
-          "id": "2251",
-          "uuid": "176e0523-d5c2-4585-8dec-8efb569c7b5e",
-          "wallet_number": "145951116-B",
-          "user_wallet_id": 2262,
+          "id": "2236",
+          "uuid": "69ce0542-22c9-47d0-ae93-ee8b75fcd01e",
+          "wallet_number": "581635116-B",
+          "user_wallet_id": 2247,
           "balance": 0,
           "default": 0,
-          "created_at": "2025-06-02T11:18:20.000000Z",
-          "updated_at": "2025-06-02T11:18:20.000000Z",
+          "created_at": "2025-06-02T11:16:26.000000Z",
+          "updated_at": "2025-06-02T11:16:26.000000Z",
           "is_deleted": 0,
           "deleted_at": null,
           "bonus_wallet_active": false
@@ -53,7 +53,7 @@
       }
     ],
     "userLevel": {
-      "uuid": "da13992e-bdf6-451b-9b40-64d764a2be6b",
+      "uuid": "6e5fd5be-f62f-44d9-86e4-57f2cde82f45",
       "point": 1700,
       "total_point": 1700,
       "seen": 1,
@@ -85,7 +85,7 @@
       }
     },
     "userDetail": {
-      "uuid": "b6040787-26f2-4823-85a1-4aebd9da4025",
+      "uuid": "dbfe608a-f3cf-4d5f-a7ea-25c7aeb5eae7",
       "first_name": null,
       "last_name": null,
       "dob": null,
@@ -114,7 +114,7 @@
     "provider_image": null,
     "provider_name": null,
     "active_status": true,
-    "referral_code": "397016",
+    "referral_code": "946791",
     "bonus_eligible": true,
     "bonus_info": null,
     "bonus_wallet_exist": false,
@@ -123,16 +123,16 @@
   },
   "supportbot": [
     {
-      "id": "13132",
+      "id": "13048",
       "profile_image": "https://support.bitdeposit.net/media/user.svg",
-      "first_name": "pb(1799)",
+      "first_name": "pb(2119)",
       "last_name": "",
-      "email": "chasem@softic.ai",
+      "email": "lizzie@softic.ai",
       "user_type": "user",
-      "token": "f05c799f6dc30c2c6e6084b93d498dff4178c487",
+      "token": "61bde1893d2f5c9ca2dcdc491ee66ce4c01fdc90",
       "url": "https://support.bitdeposit.net",
-      "password": "$2y$10$ioG5tvnP2Bd/ewU7RY44ruZ.xTr815IJF43sVNDfD.PbR/b0ER.B."
+      "password": "$2y$10$qDvcYVvWFUKFvr6c2C.vS.T.BLvNgootl1QIOMsgrA7lxl91eoeeW"
     },
-    "bHFwNG1FbVpyQllqcXZnTXcwTkFKRFd6QnI5NU1pbEtSQUp3ZVhEcE1kam9FZ3VuUDR5Yis5bzBnUHZWbWZNUkJTdlJ2OWpqSmJrVSthRVZQM3pKcXFUN3k5d3F3QWtGZHE1aVJ4OUIxWDFCU2FLbEc4L0FLOWJoanZ5eVg4RG13V3dlY2RIZjBmVjhDZ3FzMFlmVlhjTmN2a01TQTlmenZuZVZtM3VpZnJxclFVYzlHbXJyMWpmUEZ6ZlRaZHo3RnVlcnhQeWJaVGc5d1R2UE5lVFBUVktocDIxak9ORW1JYXBXQS9HOUlIMnFrMm5zZWxWUmMvT1BQd3cyZGhIbS9ITmE3L0EyS015OXI3dG55WG9hZ0V3Nlp6QVFQZXh6UWI3OUV1dVVHVzVSZE1oZDNvMEwvMGs5RGVnUkdFUms3bGJWc1V1MmFwYWtONit5NzBPWEkxVkZoam9UM2RJU21qODI3V0EwUUFESWJ2b1B5NVFXRmhrSnhKRjU5cWlRSStpU2ExK3JOcWpnbmcxa3UzMEpLZlRrdDFIenVBeWxIWXBSS3k4bDd3b0FyLy90ejdTMUZ2NlA3M1kxUkRJNw="
+    "emx2Q1BueXBGQzRwZVdJWFBPblVxSmgwYTA0TExRMXQyY3JRS0pGNUxnemUvWHZWUll3aG9WNWdaNlRySGhGaFpiVkF0MzNsMlFveU1XMWk0UWdFS0VtSjRPV3dlZXEweUxyeEZHMm96YlVzOTlVczVCTmhaVUhaMGxneWcwMno5dkRzWVlYVDJjdGJoN1FORm81YS9La05mNVVhM1YvSURxa21YNWFtN2grMWdHZm9KM1RoUGozK3R3Y0IyZVI4dEFNU1hiVkxwRUd4NGhuOExFYWxBQkxLZGtMZUpCQkpKbnA4QXlVeW5UQkMxWHo0SGRWM2Y4akY3cEJyTzBmZEhxTjFmcVJyZ2p2ZU4zaHFGVkVJdnlGemdYVTFNcS9WMDlCdHM2Y1J6TlJhVFYyZk1ZRjh4RGdYREtVbHVJcnFtSmtTWWVQemdCa05kTlA3SGxwZ0t4cTdaQys2S1JWdnVYZ2VxUXpOK25Ua0d1TlF6R0kxb1NLVTF1QmE3b3QvOU9VZFl5UHVKd053dGZZdEVCRjhadFYvYkUyOEtrMnFFTldLR1E4Q3NNSm1nNUY0SDJybURPUHZGMmxRR0dleQ="
   ]
 }

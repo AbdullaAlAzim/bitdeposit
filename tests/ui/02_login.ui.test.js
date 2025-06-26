@@ -15,13 +15,12 @@ const testMobileUserPath = path.join(
 const emailUser = JSON.parse(fs.readFileSync(testEmailUserPath, "utf-8"))[0];
 const mobileUser = JSON.parse(fs.readFileSync(testMobileUserPath, "utf-8"))[0];
 
-test.describe("User Login with API Status and DB Verification", () => {
+test.describe("User Login with API Status and DB Verification ", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://dev-user.bitdeposit.org/");
   });
 
-  //Login with Email Test
-  test("Login with Email and verify DB", async ({ page }, testInfo) => {
+  test("Login with Email and verify DB @regression", async ({ page }, testInfo) => {
     console.log(`🔁 Retry Count: ${testInfo.retry}`);
     await page.getByRole("button", { name: "লগইন" }).click();
 
@@ -73,8 +72,7 @@ test.describe("User Login with API Status and DB Verification", () => {
     }
   });
 
-  //Login with phone test
-  test("Login with Phone and verify DB", async ({ page }, testInfo) => {
+  test("Login with Phone and verify DB @regression ", async ({ page }, testInfo) => {
     console.log(`🔁 Retry Count: ${testInfo.retry}`);
     await page.getByRole("button", { name: "লগইন" }).click();
 
