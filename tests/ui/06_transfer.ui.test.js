@@ -66,7 +66,7 @@ test.describe("Transfer test scenario", () => {
     // Assertion for success message
     const successMessage = page.locator("h6");
     await expect(successMessage).toHaveText(
-      "Your transfer is successful to Rashed Khan Menon"
+      "Your transfer is successful to Rashed Rion"
     );
     console.log("Transfer success message verified");
 

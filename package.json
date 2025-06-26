@@ -8,7 +8,11 @@
     "test:db": "npx playwright test tests/db",
     "test:ui": "npx playwright test tests/ui",
     "test:headed": "npx playwright test --headed",
-    "test:report": "npx playwright show-report"
+    "report:open": "npx playwright show-report",
+    "report:allure": "npx allure serve test-results/allure-results",
+    "test:regression": "npx playwright test --grep @regression --workers=1",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:critical": "npx playwright test --grep @critical"
   },
   "keywords": [],
   "author": "",

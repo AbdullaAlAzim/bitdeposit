@@ -6,6 +6,7 @@ import db from "../../src/utils/db";
 const emailUserPath = path.join(__dirname, "../../src/utils/testEmailUser.json");
 const mobileUserPath = path.join(__dirname, "../../src/utils/testMobileUser.json");
 
+
 // ✅ একমাত্র describe ব্লক: Register Tests
 test.describe('Register Tests (Email & Phone)', () => {
   // ✅ Common steps before each test
@@ -15,7 +16,7 @@ test.describe('Register Tests (Email & Phone)', () => {
   });
 
   // ✅ ইমেইল রেজিস্ট্রেশন টেস্ট
-  test('UI Registration and DB Verification (Email)', async ({ page }) => {
+  test('UI Registration and DB Verification (Email) @regression', async ({ page }) => {
     const randomEmail = `rashed${Math.floor(Math.random() * 10000)}@softic.ai`;
     const password = "password123";
     const otpCode = "123456";
@@ -61,7 +62,7 @@ test.describe('Register Tests (Email & Phone)', () => {
   });
 
   // ✅ মোবাইল রেজিস্ট্রেশন টেস্ট
-  test('UI Registration and DB Verification with Phone', async ({ page }) => {
+  test('UI Registration and DB Verification with Phone @regression', async ({ page }) => {
     const randomPhone = "019" + Math.floor(10000000 + Math.random() * 90000000).toString();
     const password = "password";
     const otpCode = "123456";
