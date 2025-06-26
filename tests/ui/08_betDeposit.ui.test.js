@@ -24,7 +24,7 @@ for (const user of testEmailUser) {
 
     test(`Bet Deposit test `, async ({ page }) => {
 
-``
+      
     });
 
   });
