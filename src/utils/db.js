@@ -19,18 +19,14 @@ const db = {
 
   async findUserByEmail(email) {
     const conn = await this.getConnection();
-    const [rows] = await conn.execute(`SELECT * FROM users WHERE email = ?`, [
-      email,
-    ]);
+    const [rows] = await conn.execute(`SELECT * FROM users WHERE email = ?`, [email]);
     await conn.end();
     return rows[0];
   },
 
   async findUserByPhone(phone) {
     const conn = await this.getConnection();
-    const [rows] = await conn.execute(`SELECT * FROM users WHERE mobile = ?`, [
-      phone,
-    ]);
+    const [rows] = await conn.execute(`SELECT * FROM users WHERE mobile = ?`, [phone]);
     await conn.end();
     return rows[0];
   },
@@ -80,7 +76,6 @@ const db = {
     }
   },
 
-  // ✅ NEW: Get latest mobile bank deposit info by mobile number
   async findLatestMobileBankDepositFullInfo(mobile) {
     const conn = await this.getConnection();
     const [rows] = await conn.execute(
@@ -96,6 +91,47 @@ const db = {
        ORDER BY created_at DESC
        LIMIT 1`,
       [mobile]
+    );
+    await conn.end();
+    return rows[0];
+  },
+
+  async findLatestMobileWithdrawInfo(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ) {
+    const conn = await this.getConnection();
+    const [rows] = await conn.execute(
+      `SELECT 
+         user_id,
+         amount,
+         status,
+         trx_no,
+         mobile_number,
+         created_at
+       FROM user_mobile_bank_withdraw_requests
+       WHERE mobile_number = ?
+       ORDER BY created_at DESC
+       LIMIT 1`,
+      [mobile]
+    );
+    await conn.end();
+    return rows[0];
+  },
+
+  async findLatestBankWithdrawInfo(accountNumber) {
+    const conn = await this.getConnection();
+    const [rows] = await conn.execute(
+      `SELECT 
+         user_id,
+         amount,
+         status,
+         trx_no,
+         account_number,
+         bank_name,
+         created_at
+       FROM user_bank_withdraw_requests
+       WHERE account_number = ?
+       ORDER BY created_at DESC
+       LIMIT 1`,
+      [accountNumber]
     );
     await conn.end();
     return rows[0];

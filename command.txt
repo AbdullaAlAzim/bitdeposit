@@ -1,13 +1,26 @@
 ==========================
-Allure All Command
+Project All Command
 ==========================
 
-*Old repor clean code: 
+*Old Report clean code: 
 Remove-Item -Recurse -Force allure-results, allure-report
 
-*Allure New Report Genarate
+*Allure New Report Generate
 npx allure generate ./allure-results -o ./allure-report
 
 *Allure Report open In browser
 npx allure open ./allure-report
+
+*headless command of bid-deposit
+npx playwright test tests/ui/register.ui.test.js
+npx playwright test tests/ui/login.ui.test.js
+
+* default html report generate
+$env:PORT="9450"; npx playwright show-report
+
+* Combine code run like registration and login
+npx playwright test tests/ui/register.ui.test.js tests/ui/login.ui.test.js
+
+* Codegen open
+npx playwright codegen https://dev-user.bitdeposit.org 
 

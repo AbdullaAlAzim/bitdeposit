@@ -20,6 +20,7 @@ test.describe("User Login with API Status and DB Verification", () => {
     await page.goto("https://dev-user.bitdeposit.org/");
   });
 
+  //Login with Email Test
   test("Login with Email and verify DB", async ({ page }, testInfo) => {
     console.log(`🔁 Retry Count: ${testInfo.retry}`);
     await page.getByRole("button", { name: "লগইন" }).click();
@@ -72,6 +73,7 @@ test.describe("User Login with API Status and DB Verification", () => {
     }
   });
 
+  //Login with phone test
   test("Login with Phone and verify DB", async ({ page }, testInfo) => {
     console.log(`🔁 Retry Count: ${testInfo.retry}`);
     await page.getByRole("button", { name: "লগইন" }).click();

@@ -9,3 +9,6 @@ playwright/.cache/
 allure-results/
 allure-report/
 .allure/
+
+#vscode
+.vscode

@@ -1,0 +1,138 @@
+{
+  "status": "success",
+  "code": 200,
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM1NWU5ZDllMzRhMTYyZDc4ZGYzNTMxM2E5OTU2NGVmYWQ0NDFjYzFkYjhmMjg1NmQxYjAxYmJjMDNjNmU3MmI0NTJiMGNmMWQzN2U4ZWEiLCJpYXQiOjE3NDg5MzAwODcuNzMxMDk2LCJuYmYiOjE3NDg5MzAwODcuNzMxMDk5LCJleHAiOjE3NjQ3NDEyODcuNzMwMzI3LCJzdWIiOiIzNDM5Iiwic2NvcGVzIjpbImNoZWNrLXVzZXIiXX0.OLeAJVpCKd-rWs-7QI3XG1tIxoOwkoLjAbnRh2OevLwdmW_HwblpPNFjn4e1e3gN19HuBwZ4lQTANUSaYrM_0ocj8uwqnTyNcE1sj3n6CrTUDfx_VucEPVIX8v25nwiJ6e28wiVh9su3gyws2NGWbdlbtCiB51sqIoHwDhuItYZv10jp75_h7pVw0jcR73wesPoLbuhTe2DO0R4Z0ffAPhe-xIh5uQvoBjNi-P-lyl-traE1fJZDWQjO_H427qXgrcSp7FggROM9BQjIemcDEJCwp_3Usq7oRjc75MHRakjYohbPwh7lstVAo5lm2A3LOu7uYAMfKuGBbPdZci2drp2uQqdH11Itny_YN98SwnTucpUhkW3M6SqFnCerlIXtuC4hEnTRVAOZy-Fq_G0bgc-s34sKs8D2bgKRGKGXKZaq8qIxKiSinqoPiqvVaI4zRKpB-QV18C52PFgqJn_Dky4pOUR9F-fWH4RPw226B6YVR80zyC7DmDdgWgDfxcLVmRRGIUUXKMfwQ8xwloHT73vUx9LWv24RsnpvZoUjrBW2ZSZQkUKEeXwY1R9Gv6-fRULh96X1opuSQD8XH-HKbjUZrYVfCVCiSOwbge5aAVH8HjnoDDBANchb8RrZ9SUteJDffb3fiy_q8A1IrND-Dv86_4NEApeimxmDZ0Ojsj4",
+  "user": {
+    "id": "3439",
+    "uuid": "23f59ec1-3eac-4150-9ce1-89b125476676",
+    "mobile": null,
+    "account_id": "418960",
+    "code_name": "BD-0003440",
+    "email": "user17489300873295339@softic.ai",
+    "email_verified_at": "2025-06-03T05:54:47.000000Z",
+    "mobile_verified_at": null,
+    "full_name": null,
+    "uuid_token": "29f93b09-fded-4187-85ed-22ac9d5aad97",
+    "session_info": {
+      "id": 3264,
+      "sid": "btilyeapx9z1n7b8ek19d7ne",
+      "account_id": "418960",
+      "user_id": 3439,
+      "expires_at": "0000-00-00 00:00:00",
+      "created_at": "2025-06-03T05:54:47.000000Z",
+      "updated_at": "2025-06-03T05:54:47.000000Z"
+    },
+    "wallets": [
+      {
+        "uuid": "a5e1be7d-6c93-427d-b6a2-170080e7786c",
+        "balance": 0,
+        "currency_id": 116,
+        "wallet_number": "418960116",
+        "status": 1,
+        "default": 1,
+        "is_base": 1,
+        "currency": {
+          "id": 116,
+          "name": "Bangladeshi Taka",
+          "code": "BDT",
+          "symbol": "৳"
+        },
+        "bonus_wallet": {
+          "id": "3577",
+          "uuid": "55353234-c75b-4a81-be68-7eb9617e01e9",
+          "wallet_number": "418960116-B",
+          "user_wallet_id": 3588,
+          "balance": 0,
+          "default": 0,
+          "created_at": "2025-06-03T05:54:47.000000Z",
+          "updated_at": "2025-06-03T05:54:47.000000Z",
+          "is_deleted": 0,
+          "deleted_at": null,
+          "bonus_wallet_active": false
+        }
+      }
+    ],
+    "userLevel": {
+      "uuid": "9659e308-5f97-41b3-95ed-13743cdf2b3b",
+      "point": 1700,
+      "total_point": 1700,
+      "seen": 1,
+      "signup_bonus": 1200,
+      "email_verifications_bonus": 500,
+      "mobile_verifications_bonus": 0,
+      "identity_verifications_bonus": 0,
+      "betdeposit_bonus": 0,
+      "level": {
+        "uuid": "fd6d311f-958b-4732-8250-4e361d8367b6",
+        "name": "Beginner",
+        "code_name": "lvl-01 jfhj",
+        "level_point": "2000",
+        "description": null,
+        "order": 3,
+        "logo": "https://bitdeposit-production.s3.ap-southeast-1.amazonaws.com/backend/public/2024/05/22/images/1/Beginner-ffdb14b09e0a6bdc2b9ee0a7421d8eca-2f0f8d06d7bad0c4cde3dfa5b7bc717c-b57bd17e190298a0f82ea4d3716eb9ef.png",
+        "level_up_bonus": 700
+      },
+      "previous_level": null,
+      "next_level": {
+        "uuid": "fd6d311f-958b-4732-8250-4e361d8367b7",
+        "name": "Trainee",
+        "code_name": "lvl-02",
+        "level_point": "3000",
+        "description": null,
+        "order": 4,
+        "logo": "https://bitdeposit-production.s3.ap-southeast-1.amazonaws.com/backend/public/2024/05/22/images/2/Trainee-51559422f62f9db4acaf9c9aa7f0d4a7-4863d363829125aad383c90b10f1529e.png",
+        "level_up_bonus": 2500
+      }
+    },
+    "userDetail": {
+      "uuid": "d02821e2-5158-4d28-a7f8-81d22ca5c0fd",
+      "first_name": null,
+      "last_name": null,
+      "dob": null,
+      "gender": null,
+      "id_type": null,
+      "id_number": null,
+      "identity_status": null,
+      "identity_request_remark": null,
+      "address": null,
+      "country_id": 18,
+      "country": "BANGLADESH",
+      "country_flag": "http://flagcdn.com/20x15/bd.png",
+      "state": null,
+      "zip_code": null,
+      "district": null,
+      "city": null,
+      "user_avatar": "",
+      "identity_document_front": "",
+      "identity_document_back": "",
+      "otp_verification_type": "email",
+      "two_factor_auth_status": "disable",
+      "two_factor_auth_type": null,
+      "google2fa": false
+    },
+    "provider_id": null,
+    "provider_image": null,
+    "provider_name": null,
+    "active_status": true,
+    "referral_code": "634742",
+    "bonus_eligible": true,
+    "bonus_info": null,
+    "bonus_wallet_exist": false,
+    "company": "Bitdeposit",
+    "is_dummy": 0
+  },
+  "supportbot": [
+    {
+      "id": "20491",
+      "profile_image": "https://support.bitdeposit.net/media/user.svg",
+      "first_name": "p4084",
+      "last_name": "",
+      "email": "user17489300873295339@softic.ai",
+      "user_type": "user",
+      "token": "6005410f94369b42448c5a334f6a8e8df1246dce",
+      "url": "https://support.bitdeposit.net",
+      "password": "$2y$10$Y5f8SBLJxmqCVv9.o8lpXe.Jbe/gKXd9xs16t93BllIquHb416mju"
+    },
+    "NmhjZHFMR3c0by9yQmdrajBuY29BZzNVNWZXVG5uZHBEam9lQVpDc09xTnMvQUNLemphWDhxZ1h0ZEpZVzd2MkRUL1ZFU0xyRUZvTm9qZms4SHZXOEhnOTZGb1V4K2FxZmovNmxaK3V3dEs0T3d3c2JYYjdmSHNNOVBYUmZJanNWQjV6NGpFUjhkVlBzMWhLVmVuVS9OZ2Fwc2NCT1dFZ3pZdkptR1RrWHNMTFRVRU5kRUxtRGJ0WjVZVjVGQUdmUTFLVGtlVGhWdFBTMGI4YXM1RkJyNEx6WDNYR25KVjdOS3h6aUI5UTl4bFZxQmF2ek91NWxtVVdqUlRFbGZ2MDd5R3FOWlh4UHNyZGpOeTAyMXRyWDNxQnNIblZBc0grNFRqYkZ0UFlXeGU2dUpHKytxbS9HbWljYXB1dHNMcnZQNWpMUk5oalVhTGFYZTZVUUlQQVpHS1RhSThNdVNDSkp6SFplQm16ZDVSSmZTSUxxdWZCRjZUUHU2NGtFUzZvcGVEeU4zdERLaTFCSWZpSHlXTG93emxGZlVzU0NsNjVjTXpEbDVYQTRja3hTMWt3V0tkZmtvVkRqK2hDTkF1b0VJQkZhcE4xTFhhU3RqSUdnbUt3aUE9PQ="
+  ]
+}
