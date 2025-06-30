@@ -14,7 +14,7 @@ require('dotenv').config({ path: './configs/test.env' });
       database: process.env.DB_DATABASE,
     });
 
-    console.log('✅ Connected to the database! And Now 100% Working');
+    console.log('✅ Connected to the database! And Now Its 100% Working');
     const [rows] = await conn.execute('SHOW TABLES');
     console.log('📦 Tables:', rows);
     await conn.end();

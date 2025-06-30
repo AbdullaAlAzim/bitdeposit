@@ -3,6 +3,7 @@ const { expect } = require("@playwright/test");
 //const testEmailUser = require("../../src/utils/testEmailUser.json");
 
 test.describe("Transfer test scenario", () => {
+  
   test.beforeEach(async ({ page, login }) => {
     // Login
     await login({ email: "azim@softic.ai", password: "666666" });
