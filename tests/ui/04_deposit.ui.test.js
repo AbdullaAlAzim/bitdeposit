@@ -3,6 +3,7 @@ const { expect } = require("@playwright/test");
 const testEmailUser = require("../../src/utils/testEmailUser.json");
 const db = require("../../src/utils/db");
 const fs = require("fs");
+import path from 'path'; 
 
 // 📁 Create screenshots folder if not exists
 if (!fs.existsSync("screenshots")) {
@@ -82,19 +83,19 @@ test.describe(`Deposit Tests`, () => {
   });
 
 test(`Deposit test with bank @regression`, async ({ page }) => {
-      const paymentMethod = page.locator(
-        "(//div[contains(@class, 'fund-wallet')])[11]"
-      );
-      await expect(paymentMethod).toBeVisible();
-      await paymentMethod.click();
-      console.log("✅ Selected 'Bank' deposit method");
+      const dbblOption = page.getByText('DBBL Bank');
+      await expect(dbblOption).toBeVisible();
+      await dbblOption.click();
+      console.log('✅ Selected DBBL Bank');
 
       await page.waitForTimeout(1000);
 
-      await page.getByRole("button", { name: "envelop" }).click();
+      // ✅ Upload File
+      const filePath = path.resolve(__dirname, '../../src/images/image01.jpg');
       const fileInput = page.locator('input[type="file"]');
-      await fileInput.setInputFiles("src/images/image01.jpg");
-      console.log("✅ File uploaded");
+      // ⛔ Do NOT wait for visibility — file inputs are often hidden
+      await fileInput.setInputFiles(filePath);
+      console.log('✅ File uploaded');
 
       await page
         .getByRole("textbox", { name: "Account Name..." })

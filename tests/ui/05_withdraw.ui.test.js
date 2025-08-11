@@ -4,7 +4,7 @@ const { expect } = require("@playwright/test");
 test.describe(`Withdraw By Mobile & Bank`, () => {
   test.beforeEach(async ({ page, login }) => {
     // 🔐 Login
-    await login({ email: "azim@softic.ai", password: "666666" });
+    await login({ email: "azim@softic.ai", password: "000000" });
     console.log("✅ Login successful");
 
     await page.waitForTimeout(1000);

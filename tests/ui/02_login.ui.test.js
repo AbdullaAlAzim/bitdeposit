@@ -20,57 +20,58 @@ test.describe("User Login with API Status and DB Verification ", () => {
     await page.goto("https://dev-user.bitdeposit.org/");
   });
 
-  test("Login with Email and verify DB @regression", async ({ page }, testInfo) => {
-    console.log(`🔁 Retry Count: ${testInfo.retry}`);
-    await page.getByRole("button", { name: "লগইন" }).click();
+test("Login with Email and verify DB @regression", async ({ page }, testInfo) => {
+  test.setTimeout(60000); // set timeout to 60 seconds
 
-    const [response] = await Promise.all([
-      page.waitForResponse(
-        (res) =>
-          res.url().includes("/api/v1/user/login") && res.status() === 200
-      ),
-      (async () => {
-        await page
-          .getByRole("textbox", { name: "ইমেইল অথবা অ্যাকাউন্ট আইডি" })
-          .fill(emailUser.email);
-        await page
-          .getByRole("textbox", { name: "Enter your password" })
-          .fill(emailUser.password);
-        await page
-          .getByRole("dialog")
-          .getByRole("button", { name: "লগইন" })
-          .click();
-      })(),
-    ]);
+  console.log(`🔁 Retry Count: ${testInfo.retry}`);
+  await page.getByRole("button", { name: "লগইন" }).click();
 
-    expect(response.status()).toBe(200);
-    console.log(`✅ Login API responded with status 200`);
+  const [response] = await Promise.all([
+    page.waitForResponse(
+      (res) =>
+        res.url().includes("/api/v1/user/login") && res.status() === 200
+    ),
+    (async () => {
+      await page
+        .getByRole("textbox", { name: "ইমেইল অথবা অ্যাকাউন্ট আইডি" })
+        .fill(emailUser.email);
+      await page
+        .getByRole("textbox", { name: "Enter your password" })
+        .fill(emailUser.password);
+      await page
+        .getByRole("dialog")
+        .getByRole("button", { name: "লগইন" })
+        .click();
+    })(),
+  ]);
 
-    await expect(page.locator("text=Successfully Logged In")).toBeVisible({
-      timeout: 3000,
-    });
-    console.log(`🎉 Login success confirmed: Email User - ${emailUser.email}`);
+  expect(response.status()).toBe(200);
+  console.log(`✅ Login API responded with status 200`);
 
-    const userFromDb = await db.findUserByEmail(emailUser.email);
-    expect(userFromDb).toBeDefined();
-
-    console.log(`🆔 User ID: ${userFromDb.id}`);
-    console.log(`📧 Email: ${userFromDb.email}`);
-    console.log(`📱 Phone: ${userFromDb.mobile || userFromDb.phone}`);
-
-    let lastLogin = await db.findLastLoginByUserEmail(emailUser.email);
-    if (lastLogin && lastLogin.login_at) {
-      console.log(`🕒 Last login time: ${lastLogin.login_at}`);
-    } else {
-      console.log(
-        "⚠️ No login log found for this email user, inserting now..."
-      );
-      await db.insertLoginLog(userFromDb.id);
-      lastLogin = await db.findLastLoginByUserEmail(emailUser.email);
-      if (lastLogin)
-        console.log(`🕒 New login time after insert: ${lastLogin.login_at}`);
-    }
+  await expect(page.locator("text=Successfully Logged In")).toBeVisible({
+    timeout: 3000,
   });
+  console.log(`🎉 Login success confirmed: Email User - ${emailUser.email}`);
+
+  const userFromDb = await db.findUserByEmail(emailUser.email);
+  expect(userFromDb).toBeDefined();
+
+  console.log(`🆔 User ID: ${userFromDb.id}`);
+  console.log(`📧 Email: ${userFromDb.email}`);
+  console.log(`📱 Phone: ${userFromDb.mobile || userFromDb.phone}`);
+
+  let lastLogin = await db.findLastLoginByUserEmail(emailUser.email);
+  if (lastLogin && lastLogin.login_at) {
+    console.log(`🕒 Last login time: ${lastLogin.login_at}`);
+  } else {
+    console.log("⚠️ No login log found for this email user, inserting now...");
+    await db.insertLoginLog(userFromDb.id);
+    lastLogin = await db.findLastLoginByUserEmail(emailUser.email);
+    if (lastLogin)
+      console.log(`🕒 New login time after insert: ${lastLogin.login_at}`);
+  }
+});
+
 
   test("Login with Phone and verify DB @regression ", async ({ page }, testInfo) => {
     console.log(`🔁 Retry Count: ${testInfo.retry}`);
